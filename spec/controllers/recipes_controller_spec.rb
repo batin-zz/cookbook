@@ -43,20 +43,7 @@ describe RecipesController do
   end
 
   describe "POST create" do
-    describe "with valid params" do
-      it "assigns a newly created recipe as @recipe" do
-        Recipe.stub(:new).with({'these' => 'params'}) { mock_recipe(:save => true) }
-        post :create, :recipe => {'these' => 'params'}
-        assigns(:recipe).should be(mock_recipe)
-      end
-
-      it "redirects to the created recipe" do
-        Recipe.stub(:new) { mock_recipe(:save => true) }
-        post :create, :recipe => {}
-        response.should redirect_to(recipe_url(mock_recipe))
-      end
-    end
-
+    
     describe "with invalid params" do
       it "assigns a newly created but unsaved recipe as @recipe" do
         Recipe.stub(:new).with({'these' => 'params'}) { mock_recipe(:save => false) }
@@ -80,17 +67,6 @@ describe RecipesController do
         put :update, :id => "37", :recipe => {'these' => 'params'}
       end
 
-      it "assigns the requested recipe as @recipe" do
-        Recipe.stub(:find) { mock_recipe(:update_attributes => true) }
-        put :update, :id => "1"
-        assigns(:recipe).should be(mock_recipe)
-      end
-
-      it "redirects to the recipe" do
-        Recipe.stub(:find) { mock_recipe(:update_attributes => true) }
-        put :update, :id => "1"
-        response.should redirect_to(recipe_url(mock_recipe))
-      end
     end
 
     describe "with invalid params" do
