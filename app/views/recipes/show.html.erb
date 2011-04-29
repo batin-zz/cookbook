@@ -15,6 +15,14 @@
   <%= @recipe.content %>
 </p>
 
+<h2>Comments</h2>
+<%= render :partial => "comments/comment",
+           :collection => @recipe.comments %>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<h2>Add a comment:</h2>
+<%= render "comments/form" %>
+
+<br />
+
+<%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back to Recipes', recipes_path %>

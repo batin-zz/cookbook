@@ -1,5 +1,9 @@
 Cookbook::Application.routes.draw do
-  resources :recipes
+#  resources :comments
+
+  resources :recipes do
+    resources :comments
+  end
 
   get "home/index"
 
