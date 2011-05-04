@@ -6,6 +6,7 @@ gem 'sqlite3'
 
 group :development do
   gem 'rspec-rails'
+  gem 'web-app-theme'
 end
 
 group :test do
